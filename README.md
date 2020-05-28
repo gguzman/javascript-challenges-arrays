@@ -27,6 +27,8 @@ const firstDuplicateWithMemory = arr => {
   return -1;
 };
 ```
+While this solution works, it has a time complexity of O(N2).
+Surely there must be a better solution...
 
 #### Solution 2
 ```
