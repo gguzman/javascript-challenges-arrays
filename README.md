@@ -37,7 +37,7 @@ The element in a that occurs in the array more than once and has the minimal ind
 
 #### Solution 1
 ```
-const firstDuplicate = arr => {
+const firstDuplicate = a => {
     let smaller = 1000000;
     let duplicates = [];
 
