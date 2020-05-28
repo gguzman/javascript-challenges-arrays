@@ -46,3 +46,4 @@ const firstDuplicateWithMemory = arr => {
   return -1;
 };
 ```
+This time, we need to iterate the array only once. The complexity to iterate the array once will be O(N). Storing and retrieving an item from an object has a complexity of O(1), so our final time complexity will be O(N). But, in this case, we are introducing an O(N) space complexity too since we are storing the elements of the array once again.
