@@ -62,6 +62,9 @@ const firstDuplicate = a => {
 };
 ```
 >While this solution works, it has a time complexity of O(N2).Surely there must be a better solution...
+>You can choose to solve this problem without obeying the O(1) memory constraint. Once you have solved it, you will be able to look at other people's solutions!
+
+>If you do want to solve it within the memory limit, the restrictions on the values a[i] are critical in this problem. Changing the array in place doesn't require extra memory.
 
 #### Solution 2.- The memory approach
 ```
