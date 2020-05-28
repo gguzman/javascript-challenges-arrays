@@ -66,17 +66,17 @@ const firstDuplicate = a => {
 #### Solution 2.- The memory approach
 ```
 const firstDuplicateWithMemory = arr => {
-  const memory = {};
+    let memory = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    if (memory[arr[i]] !== undefined) {
-      return arr[i];
-    } else {
-      memory[arr[i]] = i;
+    for(let i = 0; i < arr.length; i++) {
+        let item = arr[i];
+        if(memory[item] !== undefined)
+            return item;
+        else
+            memory[item] = i;
     }
-  }
 
-  return -1;
+    return -1;
 };
 ```
 >This time, we need to iterate the array only once. The complexity to iterate the array once will be O(N). Storing and retrieving an item from an object has a complexity of O(1), so our final time complexity will be O(N). But, in this case, we are introducing an O(N) space complexity too since we are storing the elements of the array once again.
