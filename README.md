@@ -37,18 +37,28 @@ The element in a that occurs in the array more than once and has the minimal ind
 
 #### Solution 1
 ```
-const firstDuplicateWithMemory = arr => {
-  const memory = {};
+const firstDuplicate = arr => {
+    let smaller = 1000000;
+    let duplicates = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (memory[arr[i]] !== undefined) {
-      return arr[i];
-    } else {
-      memory[arr[i]] = arr[i];
+    for(let i=0;i<a.length;i++) {
+        let item = a[i];
+        if (!duplicates.includes(item)) {
+            let secondItemIndex = a.indexOf(item, a.indexOf(item) + 1)
+            if ( secondItemIndex != -1) {
+                duplicates.push(item)
+                if (secondItemIndex < smaller) {
+                    smaller = secondItemIndex;
+                }
+            }
+        }
     }
-  }
 
-  return -1;
+    if (duplicates.length > 0) {
+        return a[smaller];
+    } else {
+        return -1;
+    }
 };
 ```
 >While this solution works, it has a time complexity of O(N2).Surely there must be a better solution...
