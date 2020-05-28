@@ -72,7 +72,7 @@ const firstDuplicateWithMemory = arr => {
     if (memory[arr[i]] !== undefined) {
       return arr[i];
     } else {
-      memory[arr[i]] = arr[i];
+      memory[arr[i]] = i;
     }
   }
 
