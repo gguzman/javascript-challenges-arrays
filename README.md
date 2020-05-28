@@ -20,7 +20,7 @@ For `a = [2, 2]`, the output should be `firstDuplicate(a) = 2`;
 
 For `a = [2, 4, 3, 5, 1]`, the output should be `firstDuplicate(a) = -1`.
 
-Input/Output
+### Input/Output
 
 **[execution time limit]** 4 seconds (js)
 
