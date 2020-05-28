@@ -63,7 +63,7 @@ const firstDuplicate = a => {
 ```
 >While this solution works, it has a time complexity of O(N2).Surely there must be a better solution...
 
-#### Solution 2
+#### Solution 2.- The memory approach
 ```
 const firstDuplicateWithMemory = arr => {
   const memory = {};
