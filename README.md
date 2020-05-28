@@ -1,6 +1,6 @@
-### Javascript challenges
+# Javascript challenges
 
-**Problem 1:**
+### Problem 1:
 ```
 Given an array a that contains only numbers in the range
 from 1 to a.length, find the first duplicate number for
