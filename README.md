@@ -185,12 +185,123 @@ rotateImage(a) =
 ### Solution with ES6
 ```
 function rotateImage(arr) {
-    let result = [];
-    for(let i = 0; i < arr[0].length; i++) {
-        let row = arr.map(e => e[i]).reverse();
-        result.push(row);
-    }
-    return result;
+    const N = matrix.length - 1;   // use a constant
+    
+    // use arrow functions and nested map;
+    const result = matrix.map((row, i) => 
+         row.map((val, j) => matrix[N - j][i])
+    );
+    
+    matrix.length = 0;       // hold original array reference
+    matrix.push(...result);  // Spread operator
+
+    return matrix;
 }
 
+```
+
+### An alternative
+
+```
+// Commented version 
+
+// N*N is square
+// pixels are rotated inplace
+// 4 by 4 rotated in 4 iterations
+// 5 by 5 rotated in 7 iterations
+function rotatePixels(image) {
+    var x, y, x1, y1, edge;
+    // Solve by swapping 4 at a time in rings from the outside in
+    const N = image.length;  // size of array 
+    const N1 = N - 1;        // position of end item 
+    const N2 = N / 2;        // Half way position
+    
+    // x,y hold the a cell coordinate
+    x = y = 0; 
+
+    // x,y hold the diagonally opposite cell
+    x1 = y1 = N1;
+
+    // length of current edge 
+    edge =  N1; 
+
+    // while not at the center
+    while (y < N2) {
+        // for each item on the current edge
+        while (x < edge) { // rotate points at outer edge
+            // swap 4 corner items 
+            // using array destructed assignment
+            [   
+                image[x ][y1], 
+                image[y1][x1], 
+                image[x1][N1 - y1],
+                image[y ][x ]
+            ] = [
+                image[y ][x ], 
+                image[x ][y1], 
+                image[y1][x1], 
+                image[x1][N1 - y1]
+            ];
+            x += 1;     // move top pos forward one
+            x1 -= 1;    // move bottom pos back one
+        }
+        y += 1;         // diagonally into array
+        x  = y;         // x same as y
+        y1 = x1 = N1-x; // and diagonal opposite
+        edge -= 1;      // shorten the end
+    }
+    return image;
+} 
+
+// How I would present it
+
+function rotatePixels(image) {
+    var x, y, x1, y1, edge;
+    const N = image.length;  
+    const N1 = N - 1;       
+    const N2 = N / 2;    
+    x = y = 0; 
+    edge = x1 = y1 = N1;
+    while (y < N2) {
+        while (x < edge) { 
+            [image[x][y1], image[y1][x1], image[x1][N1-y1], image[y][x]] =
+            [image[y][x] , image[x ][y1], image[y1][x1]   , image[x1][N1-y1]];
+            x += 1;
+            x1 -= 1;
+        }
+        x  = y += 1;     
+        y1 = x1 = N1-x;
+        edge -= 1;
+    }
+    return image;
+} 
+
+// At time of writing I was unsure as to the performance of the swap using destructuring
+// Turns out it is very bad
+// The next version is a more conventional swap and runs 3 time faster than the above version
+// and 8 times faster than the conventional solution at top of answer
+
+function rotatePixels(image) {
+    var x, y, x1, y1, edge;
+    const N = image.length;  
+    const N1 = N - 1;       
+    const N2 = N / 2;    
+    x = y = 0; 
+    edge = x1 = y1 = N1;
+    while (y < N2) {
+        while (x < edge) { 
+            const a = image[y][x];
+            image[y][x]      = image[x1][N1-y1];
+            image[x1][N1-y1] = image[y1][x1];
+            image[y1][x1]    = image[x][y1]; 
+            image[x][y1]     = a;
+            x += 1;
+            x1 -= 1;
+        }
+        x  = y += 1;     
+        y1 = x1 = N1-x;
+        edge -= 1;
+    }
+    return image;
+} 
 ```
