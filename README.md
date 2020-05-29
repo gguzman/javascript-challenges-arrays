@@ -200,6 +200,26 @@ function rotateImage(arr) {
 
 ```
 
+### Solution.- If the performance is important
+
+If performance is important, as mentioned above, it would be good to use for.
+```
+function rotateMatrix() {    
+    const n = this.m[0].length;
+
+    let res = []
+
+    for (let i = 0; i < n; ++i) {
+      for (let j = 0; j < n; ++j) {
+         if (!res[j])
+           res[j] = []
+         res[j][i] = this.m[n-1-i][j];
+      }
+    }
+    return res;
+}
+```
+
 ### An alternative
 
 ```
