@@ -128,3 +128,31 @@ function firstNotRepeatingCharacter(s) {
     return '_';
 }
 ```
+
+## Problem 3.- First Unique Character in a String:
+
+>Given a string `s`, find the first non-repeating character in it and return it's index. If it doesn't exist, return `-1`.
+
+### Example
+
+```
+s = "leetcode"
+return 0
+```
+```
+s = "loveleetcode",
+return 2
+```
+Note: You may assume the string contains only lowercase letters.
+
+### Solution
+
+```
+function firstUniqueCharacter(s) {
+    for(let i=0;i<s.length;i++) {
+        if (s.length === 1) return i;
+        if (s.indexOf(s[i], s.indexOf(s[i]) + 1) === -1) return i;
+    }
+    return -1;
+}
+```
