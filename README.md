@@ -143,6 +143,10 @@ return 0
 s = "loveleetcode",
 return 2
 ```
+```
+s = "abcdfabcdf",
+return -1
+```
 Note: You may assume the string contains only lowercase letters.
 
 ### Solution
