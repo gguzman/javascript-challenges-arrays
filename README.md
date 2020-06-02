@@ -35,7 +35,7 @@ Guaranteed constraints:
 The element in a that occurs in the array more than once and has the minimal index for its second occurrence. If there are no such elements, return -1.
 
 
-#### Solution 1
+### Solution 1
 ```
 const firstDuplicate = a => {
     let smaller = 1000000;
@@ -66,7 +66,7 @@ const firstDuplicate = a => {
 
 >If you do want to solve it within the memory limit, the restrictions on the values a[i] are critical in this problem. Changing the array in place doesn't require extra memory.
 
-#### Solution 2.- The memory approach
+### Solution 2.- The memory approach
 ```
 const firstDuplicateWithMemory = arr => {
     let memory = {};
