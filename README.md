@@ -450,7 +450,7 @@ const isCryptSolution = (crypt, solution) => {
         total += parseInt(result, 10)
     }
 
-    let final = getNumber(crypt[2], mySolution);
+    let final = getNumber(crypt[crypt.length-1], mySolution);
     if (final[0] !== '0') {
         if (total === parseInt(final, 10)) {
             return true;
