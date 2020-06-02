@@ -373,4 +373,109 @@ let squareIsValid = (grid) => {
 >**Note** that number `0` doesn't contain leading zeroes (while for example `00` or `0123` do).
 
 ### Example
-For
+For `crypt = ["SEND", "MORE", "MONEY"]` and
+```
+solution = [['O', '0'],
+            ['M', '1'],
+            ['Y', '2'],
+            ['E', '5'],
+            ['N', '6'],
+            ['D', '7'],
+            ['R', '8'],
+            ['S', '9']]
+```
+the output should be
+`isCryptSolution(crypt, solution) = true`.
+
+When you decrypt `"SEND"`, `"MORE"`, and `"MONEY"` using the mapping given in `crypt`, you get `9567 + 1085 = 10652` which is correct and a valid arithmetic equation.
+
+For `crypt = ["TEN", "TWO", "ONE"]` and
+```
+solution = [['O', '1'],
+            ['T', '0'],
+            ['W', '9'],
+            ['E', '5'],
+            ['N', '4']]
+```
+the output should be
+`isCryptSolution(crypt, solution) = false.`
+
+Even though `054 + 091 = 145`, `054` and `091` both contain leading `zeroes`, meaning that this is not a valid solution.
+
+### Input/Output
+
+**[execution time limit]** 4 seconds (js)
+
+**[input]** array.string crypt
+
+An array of three non-empty strings containing only uppercase English letters.
+
+**Guaranteed constraints:**
+crypt.length = 3,
+1 ≤ crypt[i].length ≤ 14.
+
+**[input]** array.array.char solution
+
+An array consisting of pairs of characters that represent the correspondence between letters and numbers in the cryptarithm. The first character in the pair is an uppercase English letter, and the second one is a digit in the range from 0 to 9.
+
+It is guaranteed that solution only contains entries for the letters present in crypt and that different letters have different values.
+
+**Guaranteed constraints:**
+solution[i].length = 2,
+'A' ≤ solution[i][0] ≤ 'Z',
+'0' ≤ solution[i][1] ≤ '9',
+solution[i][0] ≠ solution[j][0], i ≠ j,
+solution[i][1] ≠ solution[j][1], i ≠ j.
+
+**[output]** boolean
+
+Return true if the solution represents the correct solution to the cryptarithm crypt, otherwise return `false`.
+
+### Solution
+```
+
+const isCryptSolution = (crypt, solution) => {
+    let mySolution = convertToObject(solution);
+    let total = 0;
+
+    for (let i=0;i<crypt.length-1;i++) {
+        let result = getNumber(crypt[i], mySolution);
+        if (result[0] === '0') {
+            if(crypt[i].length > 1)
+                return false;
+            else
+                return true;
+        }
+        
+        total += parseInt(result, 10)
+    }
+
+    let final = getNumber(crypt[2], mySolution);
+    if (final[0] !== '0') {
+        if (total === parseInt(final, 10)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const getNumber = (s, map) => {
+    let sum = '';
+
+    for(let i=0;i<s.length;i++) {
+        sum += map[s[i]];
+    }
+
+    return sum;
+}
+
+const convertToObject = arr => {
+    let myObj = {};
+    
+    for(let i=0;i<arr.length;i++) {
+        myObj[arr[i][0]] = arr[i][1];
+    }
+    
+    return myObj;   
+}
+```
