@@ -1,4 +1,4 @@
-# Javascript challenges
+# Javascript challenges - Arrays
 
 ## Problem 1.- First Duplicate in Array:
 
