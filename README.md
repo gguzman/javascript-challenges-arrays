@@ -128,6 +128,8 @@ function firstNotRepeatingCharacter(s) {
     return '_';
 }
 ```
+>El método **indexOf()** retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna `-1` si el elemento no esta presente.
+>array.indexOf(searchElement[, fromIndex])
 
 ## Problem 3.- First Unique Character in a String:
 
