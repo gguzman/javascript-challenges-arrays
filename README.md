@@ -482,3 +482,25 @@ const convertToObject = arr => {
     return myObj;   
 }
 ```
+## Problema - Mostrar los primeros N numberos con mas repeticiones.
+
+Dado un arreglo `numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1]` y un valor para elegir los primeros `k = 2` con más repeticiones.
+Debería de mostrar `[ '1', '2' ]`
+
+#### Solución
+```
+var numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1],
+    k = 2;
+
+const showDuplicates = (numbers, k) => {
+    let duplicate = {}
+    
+    for(let num of numbers) {
+        duplicate[num] =  duplicate[num] + 1 || 1
+    }
+
+    let topN = Object.entries(duplicate).sort((a, b) => b[1] - a[1]);
+    
+    return topN.slice(0,k).map(numbers => numbers[0])
+}
+```
