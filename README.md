@@ -482,12 +482,12 @@ const convertToObject = arr => {
     return myObj;   
 }
 ```
-## Problema - Mostrar los primeros N numberos con mas repeticiones.
+## Problem - Mostrar los primeros N numberos con mas repeticiones.
 
-Dado un arreglo `numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1]` y un valor para elegir los primeros `k = 2` con más repeticiones.
+>Given an array of number `numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1]` y un valor para elegir los primeros `k = 2` con más repeticiones.
 Debería de mostrar `[ '1', '2' ]`
 
-#### Solución
+### Solución
 ```
 var numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1],
     k = 2;
@@ -503,4 +503,38 @@ const showDuplicates = (numbers, k) => {
     
     return topN.slice(0,k).map(numbers => numbers[0])
 }
+```
+
+## Problem - Is beautiful string?
+
+>A string is said to be _beautiful_ if `b` occurs in it no more times than `a`; `c` occurs in it no more times than `b`; etc.
+
+Given a string, check whether it is _beautiful_.
+
+**Example**
+
+*   For `inputString = "bbbaacdafe"`, the output should be
+    `isBeautifulString(inputString) = true`;
+*   For `inputString = "aabbb"`, the output should be
+    `isBeautifulString(inputString) = false`;
+*   For `inputString = "bbc"`, the output should be
+    `isBeautifulString(inputString) = false`.
+
+**Input/Output**
+
+**[time limit] 4000ms (js)**
+
+**[input] string inputString**
+
+    A string of lowercase letters.
+
+    _Guaranteed constraints:_
+    `3 ≤ inputString.length ≤ 50`.
+
+**[output] boolean**
+
+### Solution
+
+```
+// Code here
 ```
