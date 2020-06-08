@@ -484,10 +484,10 @@ const convertToObject = arr => {
 ```
 ## Problem - Mostrar los primeros N numberos con mas repeticiones.
 
->Given an array of number `numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1]` y un valor para elegir los primeros `k = 2` con más repeticiones.
+>Dado un arreglo de numeros `numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1]` y un valor para elegir los primeros `k = 2` con más repeticiones.
 Debería de mostrar `[ '1', '2' ]`
 
-### Solución
+### Solution
 ```
 var numbers = [1,2,4,5,6,7,1,2,1,2,3,4,5,1],
     k = 2;
