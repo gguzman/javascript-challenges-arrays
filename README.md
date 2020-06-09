@@ -519,6 +519,11 @@ Given a string, check whether it is _beautiful_.
     `isBeautifulString(inputString) = false`;
 *   For `inputString = "bbc"`, the output should be
     `isBeautifulString(inputString) = false`.
+*   For `inputString = "bbbaa"`, the output should be
+    `isBeautifulString(inputString) = false`.
+*   For `inputString = "bbbaaa"`, the output should be
+    `isBeautifulString(inputString) = true`.
+
 
 **Input/Output**
 
@@ -526,10 +531,10 @@ Given a string, check whether it is _beautiful_.
 
 **[input] string inputString**
 
-    A string of lowercase letters.
+A string of lowercase letters.
 
-    _Guaranteed constraints:_
-    `3 ≤ inputString.length ≤ 50`.
+_Guaranteed constraints:_
+`3 ≤ inputString.length ≤ 50`.
 
 **[output] boolean**
 
