@@ -536,5 +536,33 @@ Given a string, check whether it is _beautiful_.
 ### Solution
 
 ```
-// Code here
+var test = "bbbaacdafe"
+
+const isBeautifulString = (s) => {
+    let stringList = s.split("").sort(),
+      alpha = "abcdefghijklmnopqrstuvwxyz".split(""),
+      stringDict = {},
+      values = [],
+      unique = [],
+      size = 0;
+    
+    if (stringList[0] !== 'a') {
+      return false
+    }
+    
+    for(let letter of stringList) {
+      stringDict[letter] = stringDict[letter] + 1 || 1
+    }
+    
+    values = Object.values(stringDict)
+    unique = Object.keys(stringDict)
+    size = values.length;
+    
+    for(let i = 0; i< size; i++) {
+      if((i <= size - 1 && values[i] < values[i + 1] ) || unique[i] !== alpha[i])
+        return false
+    }
+    
+    return true
+  }
 ```
