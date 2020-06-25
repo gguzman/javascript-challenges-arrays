@@ -6,7 +6,7 @@
 - [Problem 4.- Rotate image](/README.md#problem-4--rotate-image)
 - [Problem 5.- Sudoku2](/README.md#problem-5--sudoku2)
 - [Problem 6.- Is Crypt solution](/README.md#problem-6--is-crypt-solution)
-- [Problem 7.- Is Mostrar los primeros N numberos con mas repeticiones.](/README.md#problem---mostrar-los-primeros-n-numberos-con-mas-repeticiones)
+- [Problem 7.- Mostrar los primeros N numberos con mas repeticiones.](/README.md#problem---mostrar-los-primeros-n-numberos-con-mas-repeticiones)
 - [Problem 8.- Is Beautiful string](/README.md#problem---is-beautiful-string)
 
 
