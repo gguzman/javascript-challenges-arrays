@@ -1,4 +1,6 @@
 # Javascript challenges - Arrays
+## Content
+[First Duplicate in Array]()
 
 ## Problem 1.- First Duplicate in Array:
 
