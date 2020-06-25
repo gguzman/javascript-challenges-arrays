@@ -1,6 +1,6 @@
 # Javascript challenges - Arrays
 ## Content
-[First Duplicate in Array]()
+[First Duplicate in Array](/README.md#problem-1--first-duplicate-in-array)
 
 ## Problem 1.- First Duplicate in Array:
 
