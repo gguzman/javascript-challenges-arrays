@@ -46,29 +46,18 @@ The element in a that occurs in the array more than once and has the minimal ind
 
 ### Solution 1
 ```
-const firstDuplicate = a => {
-    let smaller = 1000000;
-    let duplicates = [];
+const firstDuplicate = arr => {
 
-    for(let i=0;i<a.length;i++) {
-        let item = a[i];
-        if (!duplicates.includes(item)) {
-            let secondItemIndex = a.indexOf(item, a.indexOf(item) + 1)
-            if ( secondItemIndex != -1) {
-                duplicates.push(item)
-                if (secondItemIndex < smaller) {
-                    smaller = secondItemIndex;
-                }
-            }
+    let minPosition = miarreglo.length;
+    let minElement = -1;
+    miarreglo.map((item, index) => {
+        let posSecondElement = miarreglo.indexOf(item, miarreglo.indexOf(item) + 1);
+        if ( posSecondElement !== -1 && posSecondElement < minPosition) {
+           minPosition = posSecondElement;
+           minElement = item;
         }
-    }
-
-    if (duplicates.length > 0) {
-        return a[smaller];
-    } else {
-        return -1;
-    }
-};
+    })
+}
 ```
 >While this solution works, it has a time complexity of O(N2).Surely there must be a better solution...
 >You can choose to solve this problem without obeying the O(1) memory constraint. Once you have solved it, you will be able to look at other people's solutions!
