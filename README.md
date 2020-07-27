@@ -50,13 +50,16 @@ const firstDuplicate = arr => {
 
     let minPosition = miarreglo.length;
     let minElement = -1;
+
     miarreglo.map((item, index) => {
         let posSecondElement = miarreglo.indexOf(item, miarreglo.indexOf(item) + 1);
-        if ( posSecondElement !== -1 && posSecondElement < minPosition) {
+        if ( posSecondElement !== -1 && posSecondElement < minPosition ) {
            minPosition = posSecondElement;
            minElement = item;
         }
     })
+    
+    return minElement;
 }
 ```
 >While this solution works, it has a time complexity of O(N2).Surely there must be a better solution...
