@@ -550,3 +550,95 @@ const isBeautifulString = (s) => {
     return true
   }
 ```
+
+## Problema - Validación para símbolos de apertura y cierre.
+>Dado una cadena, se deberá validar si es correcta o no, dependiendo si coinciden los caracteres o símboles de apertura y cierre.
+>Casos Correctos: '()()', '(())', '[]()', '[({})]',...
+>Casos Incorrectos: '{}}{', '({)])', '{[}()]',...
+
+```js
+const test1 = '(())';
+const test2 = '({()()}[()])';
+const test3 = '{[}()]';
+
+const validateString = (string) => {
+	const map = new Map([
+        ['(', ')'],
+        ['{', '}'],
+        ['[', ']']
+    ]);
+
+    const collectionStrings = [...string]
+    let currentChars = [];
+    
+    for (let char of collectionStrings) {
+        if (map.get(char)) {
+            currentChars.push(map.get(char));   
+        } else{
+            if (char !== currentChars.pop()) {
+                return false;
+            }
+        }
+    }
+
+    return currentChars.length === 0
+}
+
+console.log(validateString(test1) ? 'Correcto' : 'Incorrecto')
+console.log(validateString(test2) ? 'Correcto' : 'Incorrecto')
+console.log(validateString(test3) ? 'Correcto' : 'Incorrecto')
+```
+
+## Problema - Autocompletar.
+>Dado un prefijo como cadena inicial, se deberá mostrar todas las sugerencias que estén relacionadas con ese prefijo.
+
+```js
+/**
+ * Autocompletado
+ * input: prefijo
+ * output: mostrar sugerencias
+ * 
+ */
+
+ const words = ['arbol', 'aroma', 'artemio', 'aldo', 'beto', 'artesania', 'alin' , 'ok', 'done', 'bye'];
+
+ const showSuggestion = (prefix) => {
+     return words.filter(word => word.startsWith(prefix))
+ }
+ 
+ console.log(showSuggestion('bet'))
+ console.log(showSuggestion('ar'))
+ console.log(showSuggestion('al'))
+```
+
+## Problema - Contador de palabras.
+>Indicar cuantas veces se repiten las palabras en una frase.
+
+```js
+  const frase = 'esto, es una frase para hacer este ejercicio tan, chevere como tomarse una cerveza en tan solo unos minutos'
+
+  const counterWords = (string) => {
+      const words = string.replace(/[.!,]/g, '').split(' ')
+      const result = words.reduce((counterW, word) => {
+          counterW[word] = (counterW[word] || 0) + 1;
+          return counterW
+      }, {})
+
+      // result = { esto: 1, es: 1, una: 2,...}
+      
+      // Con ordenamiento por numero de ocurrencias.
+      // return Object.entries(result).sort((a, b) => b[1] - a[1])
+      
+      // Con ordenamiento por palabra
+      // return Object.entries(result).sort((a, b) => {
+      //     if (a[0] > b[0]) return 1
+      //     if (a[0] < b[0]) return -1    
+      //     return 0
+      // })
+      return result
+  }
+  
+  console.log(counterWords(frase))
+```
+
+
