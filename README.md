@@ -7,6 +7,9 @@
 - [Problem 5.- Sudoku2](/README.md#problem-5--sudoku2)
 - [Problem 6.- Is Crypt solution](/README.md#problem-6--is-crypt-solution)
 - [Problem 7.- Is Beautiful string](/README.md#problem---is-beautiful-string)
+- [Problem 8.- Validación para símbolos de apertura y cierre.](/README.md#problema---validación-para-símbolos-de-apertura-y-cierre)
+- [Problem 9.- Autocompletar.](/README.md#problema---autocompletar)
+- [Problem 10.- Contador de palabras.](/README.md#problema---contador-de-palabras)
 
 
 ## Problem 1.- First Duplicate in Array:
